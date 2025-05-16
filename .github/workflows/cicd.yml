@@ -56,6 +56,6 @@ jobs:
       - name: Publicar documentación en GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GH_TOKEN }}
           publish_dir: ./target
           publish_branch: gh-pages
