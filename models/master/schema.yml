@@ -3,7 +3,7 @@ version: 2
 
 models:
   - name: dim_operador
-    description: "Tabla dimensional de operadores únicos."
+    description: "Prueba GithuPage! Tabla dimensional de operadores únicos."
     columns:
       - name: operador_id
         description: "Identificador único del operador"
