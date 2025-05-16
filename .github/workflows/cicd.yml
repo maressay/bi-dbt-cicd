@@ -48,6 +48,12 @@ jobs:
       - name: Testear conexión con dbt debug
         run: dbt debug --profiles-dir ~/.dbt
 
+      - name: Ejecutar dbt run
+        run: dbt run --profiles-dir ~/.dbt
+
+      - name: Ejecutar dbt test
+        run: dbt test --profiles-dir ~/.dbt
+
       - name: Generar documentación dbt
         run: |
           dbt deps
