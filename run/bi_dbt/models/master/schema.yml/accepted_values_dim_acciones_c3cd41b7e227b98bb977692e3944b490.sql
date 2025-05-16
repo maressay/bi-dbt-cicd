@@ -6,7 +6,7 @@
   USE [DB_BI];
   EXEC('create view 
 
-    [dbt_test__audit.testview_16bb6563227531f471f1819b155a9b6f]
+    [dbt_test__audit.testview_50b80e146b960bdac10a8ecd14ff6c59]
    as 
     
     
@@ -39,12 +39,12 @@ where value_field not in (
   from (
     select  * from 
 
-    [dbt_test__audit.testview_16bb6563227531f471f1819b155a9b6f]
+    [dbt_test__audit.testview_50b80e146b960bdac10a8ecd14ff6c59]
   
   ) dbt_internal_test;
 
   USE [DB_BI];
   EXEC('drop view 
 
-    [dbt_test__audit.testview_16bb6563227531f471f1819b155a9b6f]
+    [dbt_test__audit.testview_50b80e146b960bdac10a8ecd14ff6c59]
   ;')

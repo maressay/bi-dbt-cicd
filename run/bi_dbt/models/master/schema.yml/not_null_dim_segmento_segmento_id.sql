@@ -6,7 +6,7 @@
   USE [DB_BI];
   EXEC('create view 
 
-    [dbt_test__audit.testview_8007b09fc6c585843d3d7e90963834f8]
+    [dbt_test__audit.testview_80ffb0d72f3534b84e2a3c37bb428e76]
    as 
     
     
@@ -28,12 +28,12 @@ where segmento_id is null
   from (
     select  * from 
 
-    [dbt_test__audit.testview_8007b09fc6c585843d3d7e90963834f8]
+    [dbt_test__audit.testview_80ffb0d72f3534b84e2a3c37bb428e76]
   
   ) dbt_internal_test;
 
   USE [DB_BI];
   EXEC('drop view 
 
-    [dbt_test__audit.testview_8007b09fc6c585843d3d7e90963834f8]
+    [dbt_test__audit.testview_80ffb0d72f3534b84e2a3c37bb428e76]
   ;')

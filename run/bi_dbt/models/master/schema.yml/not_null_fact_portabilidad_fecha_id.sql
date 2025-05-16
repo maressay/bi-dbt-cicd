@@ -6,7 +6,7 @@
   USE [DB_BI];
   EXEC('create view 
 
-    [dbt_test__audit.testview_d0315abdf15c8de59ada9c297fc7520e]
+    [dbt_test__audit.testview_0253b6ab104bc9b785b3a4b74798db8e]
    as 
     
     
@@ -28,12 +28,12 @@ where fecha_id is null
   from (
     select  * from 
 
-    [dbt_test__audit.testview_d0315abdf15c8de59ada9c297fc7520e]
+    [dbt_test__audit.testview_0253b6ab104bc9b785b3a4b74798db8e]
   
   ) dbt_internal_test;
 
   USE [DB_BI];
   EXEC('drop view 
 
-    [dbt_test__audit.testview_d0315abdf15c8de59ada9c297fc7520e]
+    [dbt_test__audit.testview_0253b6ab104bc9b785b3a4b74798db8e]
   ;')

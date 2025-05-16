@@ -6,7 +6,7 @@
   USE [DB_BI];
   EXEC('create view 
 
-    [dbt_test__audit.testview_b480f6cdfc69e87ce2aef25110e8929c]
+    [dbt_test__audit.testview_d04dff054080803ddfbf56ba374d00e2]
    as 
     
     
@@ -28,12 +28,12 @@ where total_acciones is null
   from (
     select  * from 
 
-    [dbt_test__audit.testview_b480f6cdfc69e87ce2aef25110e8929c]
+    [dbt_test__audit.testview_d04dff054080803ddfbf56ba374d00e2]
   
   ) dbt_internal_test;
 
   USE [DB_BI];
   EXEC('drop view 
 
-    [dbt_test__audit.testview_b480f6cdfc69e87ce2aef25110e8929c]
+    [dbt_test__audit.testview_d04dff054080803ddfbf56ba374d00e2]
   ;')

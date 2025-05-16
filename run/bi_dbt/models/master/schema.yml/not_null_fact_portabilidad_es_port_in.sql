@@ -6,7 +6,7 @@
   USE [DB_BI];
   EXEC('create view 
 
-    [dbt_test__audit.testview_28c03f99ee8c43a4628fe7b3679d3d9d]
+    [dbt_test__audit.testview_622d7d1c932e6bfce7d40bd193f2bbfe]
    as 
     
     
@@ -28,12 +28,12 @@ where es_port_in is null
   from (
     select  * from 
 
-    [dbt_test__audit.testview_28c03f99ee8c43a4628fe7b3679d3d9d]
+    [dbt_test__audit.testview_622d7d1c932e6bfce7d40bd193f2bbfe]
   
   ) dbt_internal_test;
 
   USE [DB_BI];
   EXEC('drop view 
 
-    [dbt_test__audit.testview_28c03f99ee8c43a4628fe7b3679d3d9d]
+    [dbt_test__audit.testview_622d7d1c932e6bfce7d40bd193f2bbfe]
   ;')

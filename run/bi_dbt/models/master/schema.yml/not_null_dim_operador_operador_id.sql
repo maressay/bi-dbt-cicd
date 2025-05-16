@@ -6,7 +6,7 @@
   USE [DB_BI];
   EXEC('create view 
 
-    [dbt_test__audit.testview_ec0b1dc8b5f63f94da9584ba2b6a4a11]
+    [dbt_test__audit.testview_425b9475ed45b96779a0f01825925dc2]
    as 
     
     
@@ -28,12 +28,12 @@ where operador_id is null
   from (
     select  * from 
 
-    [dbt_test__audit.testview_ec0b1dc8b5f63f94da9584ba2b6a4a11]
+    [dbt_test__audit.testview_425b9475ed45b96779a0f01825925dc2]
   
   ) dbt_internal_test;
 
   USE [DB_BI];
   EXEC('drop view 
 
-    [dbt_test__audit.testview_ec0b1dc8b5f63f94da9584ba2b6a4a11]
+    [dbt_test__audit.testview_425b9475ed45b96779a0f01825925dc2]
   ;')

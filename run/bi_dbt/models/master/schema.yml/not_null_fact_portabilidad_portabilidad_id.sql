@@ -6,7 +6,7 @@
   USE [DB_BI];
   EXEC('create view 
 
-    [dbt_test__audit.testview_aa86748537567fbf85c66f4ea51ce853]
+    [dbt_test__audit.testview_e925eec63cd26086f34dff97001de6bc]
    as 
     
     
@@ -28,12 +28,12 @@ where portabilidad_id is null
   from (
     select  * from 
 
-    [dbt_test__audit.testview_aa86748537567fbf85c66f4ea51ce853]
+    [dbt_test__audit.testview_e925eec63cd26086f34dff97001de6bc]
   
   ) dbt_internal_test;
 
   USE [DB_BI];
   EXEC('drop view 
 
-    [dbt_test__audit.testview_aa86748537567fbf85c66f4ea51ce853]
+    [dbt_test__audit.testview_e925eec63cd26086f34dff97001de6bc]
   ;')

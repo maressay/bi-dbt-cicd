@@ -6,7 +6,7 @@
   USE [DB_BI];
   EXEC('create view 
 
-    [dbt_test__audit.testview_cb2a681350484b9d2960e62df0f9ac6c]
+    [dbt_test__audit.testview_8ed741928805387f472ecb326c0c9315]
    as 
     
     
@@ -28,12 +28,12 @@ where diferencia_portabilidad_programada_real is null
   from (
     select  * from 
 
-    [dbt_test__audit.testview_cb2a681350484b9d2960e62df0f9ac6c]
+    [dbt_test__audit.testview_8ed741928805387f472ecb326c0c9315]
   
   ) dbt_internal_test;
 
   USE [DB_BI];
   EXEC('drop view 
 
-    [dbt_test__audit.testview_cb2a681350484b9d2960e62df0f9ac6c]
+    [dbt_test__audit.testview_8ed741928805387f472ecb326c0c9315]
   ;')

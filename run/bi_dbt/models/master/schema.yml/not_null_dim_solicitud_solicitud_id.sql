@@ -6,7 +6,7 @@
   USE [DB_BI];
   EXEC('create view 
 
-    [dbt_test__audit.testview_f088803e5e86400896ef8f81f63e7561]
+    [dbt_test__audit.testview_0b966e100107dcbc1b6723fb1e814c4b]
    as 
     
     
@@ -28,12 +28,12 @@ where solicitud_id is null
   from (
     select  * from 
 
-    [dbt_test__audit.testview_f088803e5e86400896ef8f81f63e7561]
+    [dbt_test__audit.testview_0b966e100107dcbc1b6723fb1e814c4b]
   
   ) dbt_internal_test;
 
   USE [DB_BI];
   EXEC('drop view 
 
-    [dbt_test__audit.testview_f088803e5e86400896ef8f81f63e7561]
+    [dbt_test__audit.testview_0b966e100107dcbc1b6723fb1e814c4b]
   ;')

@@ -6,7 +6,7 @@
   USE [DB_BI];
   EXEC('create view 
 
-    [dbt_test__audit.testview_91ea973211974a2e4b89335f64a61526]
+    [dbt_test__audit.testview_4be1637a878375a3c0ffa16ec8508c67]
    as 
     
     
@@ -42,12 +42,12 @@ where parent.to_field is null
   from (
     select  * from 
 
-    [dbt_test__audit.testview_91ea973211974a2e4b89335f64a61526]
+    [dbt_test__audit.testview_4be1637a878375a3c0ffa16ec8508c67]
   
   ) dbt_internal_test;
 
   USE [DB_BI];
   EXEC('drop view 
 
-    [dbt_test__audit.testview_91ea973211974a2e4b89335f64a61526]
+    [dbt_test__audit.testview_4be1637a878375a3c0ffa16ec8508c67]
   ;')

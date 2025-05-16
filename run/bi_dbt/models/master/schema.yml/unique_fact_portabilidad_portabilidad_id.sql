@@ -6,7 +6,7 @@
   USE [DB_BI];
   EXEC('create view 
 
-    [dbt_test__audit.testview_67de6091bd15ee415268f22148f85ee4]
+    [dbt_test__audit.testview_965437a9cd0670af9e725b9d58fbef6c]
    as 
     
     
@@ -31,12 +31,12 @@ having count(*) > 1
   from (
     select  * from 
 
-    [dbt_test__audit.testview_67de6091bd15ee415268f22148f85ee4]
+    [dbt_test__audit.testview_965437a9cd0670af9e725b9d58fbef6c]
   
   ) dbt_internal_test;
 
   USE [DB_BI];
   EXEC('drop view 
 
-    [dbt_test__audit.testview_67de6091bd15ee415268f22148f85ee4]
+    [dbt_test__audit.testview_965437a9cd0670af9e725b9d58fbef6c]
   ;')
