@@ -1,0 +1,40 @@
+name: CI-CD dbt AzureSQL
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  dbt-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Instalar dependencias
+        run: pip install dbt-sqlserver
+
+      - name: Crear profiles.yml
+        run: |
+          mkdir -p ~/.dbt
+          cat > ~/.dbt/profiles.yml <<EOF
+          bi_dbt:
+            outputs:
+              dev:
+                type: sqlserver
+                driver: 'ODBC Driver 17 for SQL Server'
+                host: "${{ secrets.DBT_HOST }}"
+                port: 1433
+                user: "${{ secrets.DBT_USER }}"
+                password: "${{ secrets.DBT_PASSWORD }}"
+                database: "${{ secrets.DBT_DATABASE }}"
+                schema: "${{ secrets.DBT_SCHEMA }}"
+                threads: 1
+                encrypt: true
+                trust_cert: true
+            target: dev
+          EOF
+
+      - name: Testear conexión con dbt debug
+        run: dbt debug --profiles-dir ~/.dbt
