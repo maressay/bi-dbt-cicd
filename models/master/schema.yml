@@ -1,0 +1,211 @@
+
+version: 2
+
+models:
+  - name: dim_operador
+    description: "Tabla dimensional de operadores únicos."
+    columns:
+      - name: operador_id
+        description: "Identificador único del operador"
+        tests:
+          - not_null
+          - unique
+
+      - name: operador_nombre
+        description: "Nombre del operador"
+        tests:
+          - not_null
+
+  - name: dim_segmento
+    description: "Tabla dimensional de segmentos únicos."
+    columns:
+      - name: segmento_id
+        description: "Identificador único del segmento"
+        tests:
+          - not_null
+          - unique
+
+      - name: segmento_nombre
+        description: "Nombre del segmento"
+        tests:
+          - not_null
+  
+  - name: dim_usuario
+    description: "Tabla dimensional de usuarios."
+    columns:
+      - name: msisdn
+        description: "Número de teléfono móvil del usuario"
+        tests:
+          - not_null
+          - unique
+
+      - name: segmento
+        description: "Nombre del segmento"
+        tests:
+          - not_null
+
+  - name: dim_portabilidad
+    description: "Tabla dimensional de portabilidad."
+    columns:
+      - name: portabilidad_id
+        description: "Identificador único de la portabilidad"
+        tests:
+          - not_null
+          - unique
+
+      - name: fecha_portabilidad
+        description: "Fecha de la portabilidad"
+        tests:
+          - not_null
+  
+  - name: dim_solicitud
+    description: "Tabla dimensional de solicitudes."
+    columns:
+      - name: solicitud_id
+        description: "Identificador único de la solicitud"
+        tests:
+          - not_null
+          - unique
+
+      - name: fecha_portabilidad
+        description: "Fecha solicitada de portabilidad"
+        tests:
+          - not_null
+
+      - name: fecha_solicitud
+        description: "Fecha de la solicitud"
+        tests:
+          - not_null
+  
+  - name: dim_acciones
+    description: "Tabla dimensional de acciones."
+    columns:
+      - name: accion_id
+        description: "Identificador único de la acción"
+        tests:
+          - not_null
+          - unique
+
+      - name: solicitud_id
+        description: "Identificador único de la solicitud"
+        tests:
+          - not_null
+      - name: tipo_accion
+        description: "Tipo de acción realizada"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['MODIFICACION', 'ASISTENCIA', 'CONSULTA']
+              severity: warn
+
+  - name: dim_tiempo
+    description: "Tabla dimensional de tiempo."
+    columns:
+      - name: fecha_id
+        description: "Identificador único de la fecha"
+        tests:
+          - not_null
+          - unique
+
+      - name: anio
+        description: "Año de la fecha"
+        tests:
+          - not_null
+
+      - name: mes
+        description: "Mes de la fecha"
+        tests:
+          - not_null
+          
+  - name: fact_portabilidad
+    description: Tabla de hechos que resume las portabilidades realizadas por los usuarios.
+    columns:
+      - name: id
+        description: ID único generado con NEWID para cada registro de portabilidad.
+        tests:
+          - not_null
+          - unique
+
+      - name: portabilidad_id
+        description: ID original de la portabilidad.
+        tests:
+          - not_null
+          - unique
+
+      - name: solicitud_id
+        description: Clave foránea hacia la dimensión solicitud.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_solicitud')
+              field: solicitud_id
+
+      - name: usuario_id
+        description: Clave foránea hacia la dimensión usuario.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_usuario')
+              field: msisdn
+
+      - name: operador_origen
+        description: Clave foránea hacia la dimensión operador (origen).
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_operador')
+              field: operador_id
+
+      - name: operador_destino
+        description: Clave foránea hacia la dimensión operador (destino).
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_operador')
+              field: operador_id
+
+      - name: segmento_id
+        description: Clave foránea hacia la dimensión segmento.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_segmento')
+              field: segmento_id
+
+      - name: fecha_id
+        description: Clave foránea hacia la dimensión tiempo.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_tiempo')
+              field: fecha_id
+
+      - name: total_acciones
+        description: Total de acciones registradas para la solicitud.
+        tests:
+          - not_null
+
+      - name: porcentaje_acciones_exitosas
+        description: Porcentaje de acciones exitosas en la solicitud.
+        tests:
+          - not_null
+
+      - name: dias_portabilidad_esperada
+        description: Días entre solicitud y fecha programada de portabilidad.
+        tests:
+          - not_null
+
+      - name: dias_portabilidad_real
+        description: Días entre solicitud y fecha real de portabilidad.
+        tests:
+          - not_null
+
+      - name: diferencia_portabilidad_programada_real
+        description: Diferencia entre la portabilidad programada y la real.
+        tests:
+          - not_null
+
+      - name: es_port_in
+        description: Indicador binario para portabilidad hacia Claro.
+        tests:
+          - not_null
